@@ -8,5 +8,5 @@ Course ID: 2216
     - tp\[1 - 3\] (.v files)
     - exam blanc (.v file)
 
-* **training_partiels**
+* **training_partiels/**
     - empty .v files (to complete)
