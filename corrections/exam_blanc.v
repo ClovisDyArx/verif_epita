@@ -24,51 +24,100 @@ Lemma q1 :
   forall a b c: nat,
     a + (b + c) = (a + b) + c.
 Proof.
-   admit.
-Admitted.
+intros.
+induction a.
+- simpl.
+  reflexivity.
+- simpl.
+  rewrite IHa.
+  reflexivity.
+Qed.
 
 
 Lemma q2 :
   forall a : nat,
     a + 0 = a.
 Proof.
-   admit.
-Admitted.
+intros.
+induction a.
+- simpl.
+  reflexivity.
+- simpl.
+  rewrite IHa.
+  reflexivity.
+Qed.
 
 
 Lemma q3 :
   forall a b : nat,
     S (a + b) = a + S b.
 Proof.
-   admit.
-Admitted.
+intros.
+induction a.
+- simpl.
+  reflexivity.
+- simpl.
+  rewrite IHa.
+  reflexivity.
+Qed.
 
 
 Lemma q4 :
   forall a b : nat,
     a + b = b + a.
 Proof.
-   admit.
-Admitted.
+intros.
+induction a.
+- simpl.
+  rewrite q2.
+  reflexivity.
+- simpl.
+  rewrite IHa.
+  rewrite q3.
+  reflexivity.
+Qed.
 
 
 Lemma q5 :
   forall a : nat,
     a * 0 = 0.
 Proof.
-   admit.
-Admitted.
+intros.
+induction a.
+- simpl.
+  reflexivity.
+- simpl.
+  rewrite IHa.
+  reflexivity.
+Qed.
 
 
 Lemma q6 :
   forall n m: nat,
     m * S n = m + m * n.
 Proof.
-   admit.
-Admitted.
+intros.
+induction m.
+- simpl.
+  reflexivity.
+- simpl.
+  rewrite IHm.
+  rewrite q1.
+  rewrite q1.
+  rewrite q4 with (a := n)(b := m).
+  reflexivity.
+Qed.
 
 
 Lemma q7 : forall n m : nat,  m*n = n*m.
 Proof.
-   admit.
-Admitted.
+intros.
+induction m.
+- simpl.
+  rewrite q5.
+  reflexivity.
+- simpl.
+  rewrite q6.
+  rewrite IHm.
+  reflexivity.
+Qed.
