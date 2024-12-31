@@ -128,8 +128,20 @@ Proposition de_morgan_classic:
 forall P Q, ~P \/ ~Q <-> ~(P /\ Q).
 
 Proof.
-  admit.
-Abort.
+unfold not.
+split.
+- intros.
+  destruct H.
+  destruct H0.
+  -- apply H.
+    assumption.
+  -- apply H.
+    destruct H0.
+    assumption.
+- admit.
+Admitted.
+
+(* On ne peut pas prouver cette égalité *)
 
 
 Proposition excluded_middle_irrefutable:
